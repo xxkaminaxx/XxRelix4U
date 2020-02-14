@@ -1,35 +1,130 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# MS4 - xxRelix4U 
 
-Welcome USER_NAME,
+link to site here: [xxRelix4U]()
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+Overview: 
 
-## Gitpod Reminders
+For my milestone 4 project I'm going to create an auction site that will list and sell ancient and legendary relic of our time !  
+ 
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+# UX
 
-`python3 -m http.server`
 
-A blue button should appear to click: *Expose*,
+External user goals :
 
-Another blue button should appear to click: *Open Browser*.
+* To seek and find an artifact.
+* To be enlighted to the history and events pertaining to the artifact. 
+* To Purchase an artifact listed on this site. 
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
 
-A blue button should appear to click: *Expose*,
+Site owner/seller goal: 
 
-Another blue button should appear to click: *Open Browser*.
+* To earn money from selling artifacts
+* To get user to sign up to site and enable purchaseing as a result. 
+* To educate users of the history behind artifacts 
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
+#### User stories :
 
-## Updates Since The Instructional Video
+As a user i would like to be able to search several categories to better find items im looking for. 
+As a user i would like to be able to see the price for an artifact and other details pertaining it to make an informed decision on whether to purchase or not. 
+As a user i would like to be able to bid on an artifact to potentially aquire said item.
+As a user i would like to be able to learn about the history and events of the item. 
 
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+#### Wireframes:
 
---------
+I hand drew my wireframes and linked them below:
 
-Happy coding!
+* []()
+
+# Features
+
+#### Existing features: 
+
+
+
+
+
+#### Features left to implement:
+
+
+T
+# Technologies used: 
+
+Bootstrap CDN 
+
+* 
+
+HTML
+
+*
+
+CSS 
+ 
+* 
+Javascript 
+
+* 
+
+Fontawesome
+
+* 
+
+Google Fonts 
+
+* 
+Python 
+
+*
+
+
+
+# TESTING 
+
+#### User testing: 
+
+
+
+#### Manual testing: 
+
+
+ Validation: 
+
+ HTML -  [W3.orgvalidator](https://validator.w3.org/nu/) 
+
+ CSS -  [W3CCSSvalidation](https://jigsaw.w3.org/css-validator) 
+
+Python - [PEP8validator](http://pep8online.com/) 
+
+Javascript - [Esprima](https://esprima.org/demo/validate.html) 
+
+
+* Issues:
+
+
+# DEPLOYMENT
+
+#### local deployment: 
+
+* Go to my github repository [here]()
+* click "clone and download" and then copy the url . 
+* Open up your own IDE  
+* Within the terminal type "git clone" then hit space bar and paste the url next it. 
+* Hit enter then the file should be loaded and displayed 
+* 
+#### Heroku 
+
+
+# CREDITS
+
+ #### Code: 
+ 
+  
+
+
+#### Content : 
+
+
+#### Acknowledgements : 
+
