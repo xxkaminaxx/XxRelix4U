@@ -49,7 +49,7 @@ I hand drew my wireframes and linked them below:
 #### Features left to implement:
 
 
-T
+
 # Technologies used: 
 
 Bootstrap CDN 
