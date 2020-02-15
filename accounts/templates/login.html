@@ -26,9 +26,10 @@
 		{% endfor %}
 	</div> 
 	{% endif%}
-<form action="Post">
+<form method="POST">
+{% csrf_token %}
 {{ personal_login_form }}
-<button type="submit"> </button>
+<button type="submit"> Login </button>
 </form>
 
 </body>
