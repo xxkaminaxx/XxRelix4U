@@ -9,6 +9,7 @@
 {% csrf_token %}
 {{ personal_login_form }}
 <button type="submit"> Login </button>
-</form>
+</form> 
 
+<p><a href="{% url 'password_reset' %}">password reset</a>  </p>
 {% endblock %}

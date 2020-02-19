@@ -7,7 +7,7 @@ from accounts import url_reset
 urlpatterns = [
     url(r'^logout/', logout, name="logout"),
     url(r'^login/', login, name="login"),
-    url(r'^register/', user_registration, name="registration"),
+    url(r'^user_registration/', user_registration, name="user_registration"),
     url(r'^personal_profile/', personal_profile, name="personal_profile"),
     url(r'^password-reset/', include(url_reset))
 ]

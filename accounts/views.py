@@ -77,3 +77,8 @@ def personal_profile(request):
     # this retrieves user info from db
     user = User.objects.get(email=request.user.email)
     return render(request, 'personal_profile.html', {'personal_profile': user})
+
+
+def password_email(request):
+
+    return render(request, 'password_reset_email.html')
