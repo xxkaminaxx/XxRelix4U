@@ -6,6 +6,7 @@ Overview:
 
 For my milestone 4 project I'm going to create an auction site that will list and sell ancient and legendary relic of our time !  
  
+ [![Build Status](https://travis-ci.org/xxkaminaxx/XxRelix4U.svg?branch=master)](https://travis-ci.org/xxkaminaxx/XxRelix4U)
 
 # UX
 
