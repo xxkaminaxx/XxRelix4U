@@ -1,23 +1,29 @@
 <!DOCTYPE html>
 {% load staticfiles  %}
-<html lang="en"> 
+<html lang="en">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'css/style.css'  %}">
+
+	<!--BOOTSTRAP CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="{% static 'css/style.css'  %}">
 
 	<title>{% block page_title %}{% endblock %}</title>
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top"  >
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
 		<div class="container-fluid">
-			<a class=" navbar-brand" href="/home"><img class="clover-logo" ></a>
+			<a class=" navbar-brand" href="/home"><img class="" ></a>
 				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -33,6 +39,15 @@
 						<li class="nav-item active"><a class="nav-link"
 								href="{% url 'user_registration' %}">Register</a></li>
 						{% endif %}
+						<li>
+							<a href="{% url 'view_cart' %}">
+								<i class="fa fa-shipping-cart"></i>Cart
+								{% if artifact_count > 0 %}
+								<label class="badge badge-warning">{{ artifact_count }}</label>
+								{% endif %}
+							</a>
+						</li>
+
 					</ul>
 				</div>
 		</div>
@@ -44,11 +59,20 @@
 
 	<hr> {% if messages %}
 	<div>
-		{% for message in messages %} {{ message }} {% endfor %}
+		{% for message in messages %} 
+        {{ message }}
+         {% endfor %}
 	</div>
 	{% endif %}
-	{% block content %}
-	{% endblock %}
+	 <div class="container">
+        <div class="display">
+            <form action="{% url 'search' %}" method="get">
+                <input type="text" name="q">
+                <button type="search">Search</button>
+            </form>
+        </div>
+        {% block content %} {% endblock %}
+    </div>
 
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
