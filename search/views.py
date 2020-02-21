@@ -5,4 +5,4 @@ from artifacts.models import Artifact
 
 def do_search(request):
     artifacts = Artifact.objects.filter(name__icontains=request.GET['q'])
-    return render(request, "products.html", {"artifacts": artifacts})
+    return render(request, "artifacts.html", {"artifacts": artifacts})

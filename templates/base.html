@@ -11,9 +11,9 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-	<!-- Font Awesome -->
-	<link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
-
+	<!-- FONT AWESOME-->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="{% static 'css/style.css'  %}">
 
@@ -21,15 +21,15 @@
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="artifacts-nav">
 		<div class="container-fluid">
 			<a class=" navbar-brand" href="/home"><img class="" ></a>
 				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
-				<div class="collapse navbar-collapse" id="navbarResponsive">
-					<ul class="navbar-nav mr-auto">
+				<div class="collapse navbar-collapse artifact-nav-menu" id="navbarResponsive">
+					<ul class=" navbar-nav ml-auto">
 						{% if user.is_authenticated %}
 						<li class="nav-item active"><a class="nav-link" href="{% url 'personal_profile'  %}">Profile</a>
 						</li>
@@ -63,6 +63,7 @@
         {{ message }}
          {% endfor %}
 	</div>
+
 	{% endif %}
 	 <div class="container">
         <div class="display">

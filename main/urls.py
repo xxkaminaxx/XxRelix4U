@@ -31,5 +31,5 @@ urlpatterns = [
     url(r'^artifacts/', include(artifacts_urls)),
     url(r'^cart/', include(cart_urls)),
     url(r'^search/', include(search_urls)),
-    url(r'^media/(?P<path>.*)$/', static.serve, {'document_root': MEDIA_ROOT})
+    url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ]
