@@ -128,4 +128,5 @@ Javascript - [Esprima](https://esprima.org/demo/validate.html)
 
 
 #### Acknowledgements : 
-
+During the development of this project because i had very little time left I used alot of the django mini project 
+code. So what i mean is as i was learning and implimenting the mini project i was also editing it to what would eventually become my milestone 4. I changed most areas and made it my own, nevertheless I'm acknowledging some of my code will look similar to the mini project.

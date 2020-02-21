@@ -15,11 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from accounts.views import index
 from accounts import urls as accounts_urls
+from artifacts import urls as artifacts_urls
+from cart import urls as cart_urls
+from artifacts.views import all_artifacts
+from django.views import static
+from .settings import MEDIA_ROOT
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', index, name="index"),
-    url(r'^accounts/', include(accounts_urls))
+    url(r'^$', all_artifacts, name='index'),
+    url(r'^accounts/', include(accounts_urls)),
+    url(r'^artifacts/', include(artifacts_urls)),
+    url(r'^cart/', include(cart_urls)),
+    url(r'^media/(?P<path>.*)$/', static.serve, {'document_root': MEDIA_ROOT})
 ]
