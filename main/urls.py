@@ -18,19 +18,19 @@ from django.contrib import admin
 from accounts import urls as accounts_urls
 from artifacts import urls as artifacts_urls
 from cart import urls as cart_urls
-from search import urls as search_urls
 from checkout import urls as checkout_urls
-from artifacts.views import all_artifacts
+from search import urls as search_urls
+from home.views import home_page
 from django.views import static
 from .settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', all_artifacts, name='index'),
+    url(r'^$', home_page, name='index'),
     url(r'^accounts/', include(accounts_urls)),
     url(r'^artifacts/', include(artifacts_urls)),
     url(r'^cart/', include(cart_urls)),
-    url(r'^search/', include(search_urls)),
     url(r'^checkout/', include(checkout_urls)),
+    url(r'^search/', include(search_urls)),
     url(r'^media/(?P<path>.*)$', static.serve, {'document_root': MEDIA_ROOT})
 ]

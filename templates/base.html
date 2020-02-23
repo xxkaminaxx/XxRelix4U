@@ -23,13 +23,16 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="artifacts-nav">
 		<div class="container-fluid">
-			<a class=" navbar-brand" href="/home"><img class="" ></a>
+			<a class=" navbar-brand" href="{% url 'index'  %}"><img class="" >Relix4U</a>
 				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
 				<div class="collapse navbar-collapse artifact-nav-menu" id="navbarResponsive">
 					<ul class=" navbar-nav ml-auto">
+                    <li class="nav-item active"><a class="nav-link" href="{% url 'index'  %}">Home</a>
+                     <li class="nav-item active"><a class="nav-link" href="{% url 'artifacts'  %}">Artifacts</a>
+						</li>
 						{% if user.is_authenticated %}
 						<li class="nav-item active"><a class="nav-link" href="{% url 'personal_profile'  %}">Profile</a>
 						</li>
