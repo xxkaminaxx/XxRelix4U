@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<div class="red row ">
+    {% for artifact in artifacts %}
+        <div class=" col-xs-10  col-sm-6 col-md-6  col-lg-4">
+            <div class="artifact-card" id="artifact_card">
+            <div class="card-body ">
+                <div class="artifact" style="background-image: url('{{ MEDIA_URL }}{{ artifact.image }}')"></div>
+
+                <h3 class="artifact-name">{{ artifact.name }}</h3>
+                <p class="description-box" id="artifact-description">{{ artifact.description }}</p>
+                <p>{{ artifact.price }}</p>
+
+                <form method="POST" action="{% url 'add_to_cart' artifact.id %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                        <span class="input-group-btn">
+                            <button class="btn btn-dark" type="submit">Add</button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>

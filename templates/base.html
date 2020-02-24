@@ -18,20 +18,112 @@
 	<link rel="stylesheet" href="{% static 'css/style.css'  %}">
 
 	<title>{% block page_title %}{% endblock %}</title>
+	<style>
+		.row,
+		.red {
+
+
+			border: solid 2px red;
+		}
+
+		body {
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			padding-top: 100px;
+		}
+
+
+		.artifact-card {
+			width: 320px;
+			height: auto;
+			margin: 10px auto;
+			border: 6px solid grey;
+			background-color: #000;
+
+		}
+
+		.artifact {
+			background-size: contain;
+			background-position: center center;
+			background-repeat: no-repeat;
+			width: 150px;
+			height: 150px;
+
+		}
+
+		.artifact-name {
+			display: block;
+			height: 70px;
+			width: auto;
+			color: red;
+
+		}
+
+		#artifact-description {
+			display: none;
+		}
+
+		.description-box {
+			height: 100px;
+		}
+
+
+
+
+		/*NAV CODE*/
+
+		#relix4u_nav {
+			padding-bottom: 20px;
+			background-color: green;
+
+		}
+
+		#relix4u_nav .navbar-brand {
+			font-weight: 800;
+			color: #000;
+		}
+
+		#relix4u_nav .navbar-toggler {
+			font-size: 12px;
+			font-weight: 800;
+			padding: 13px;
+			text-transform: uppercase;
+			color: #000;
+		}
+
+		#relix4u_nav .navbar-toggler,
+		.navbar-brand {
+			margin-top: 30px;
+			margin-bottom: 0;
+		}
+
+
+		#relix4u_nav .navbar-nav>li.nav-item>a {
+			font-size: 12px;
+			font-weight: 800;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+
+		#relix4u_nav .navbar-nav>li.nav-item :hover {
+			background: #000;
+			color: #fff;
+			width: 100%;
+		}
+	</style>
 </head>
 
 <body>
-	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="artifacts-nav">
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="relix4u_nav">
 		<div class="container-fluid">
 			<a class=" navbar-brand" href="{% url 'index'  %}"><img class="" >Relix4U</a>
-				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#relix4u_colapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
-				<div class="collapse navbar-collapse artifact-nav-menu" id="navbarResponsive">
+				<div class="collapse navbar-collapse artifact-nav-menu" id="relix4u_colapse">
 					<ul class=" navbar-nav ml-auto">
-                    <li class="nav-item active"><a class="nav-link" href="{% url 'index'  %}">Home</a>
-                     <li class="nav-item active"><a class="nav-link" href="{% url 'artifacts'  %}">Artifacts</a>
+						<li class="nav-item active"><a class="nav-link" href="{% url 'index'  %}">Home</a></li>
+						<li class="nav-item active"><a class="nav-link" href="{% url 'artifacts'  %}">Artifacts</a>
 						</li>
 						{% if user.is_authenticated %}
 						<li class="nav-item active"><a class="nav-link" href="{% url 'personal_profile'  %}">Profile</a>
@@ -42,9 +134,9 @@
 						<li class="nav-item active"><a class="nav-link"
 								href="{% url 'user_registration' %}">Register</a></li>
 						{% endif %}
-						<li>
-							<a href="{% url 'view_cart' %}">
-								<i class="fa fa-shipping-cart"></i>Cart
+						<li class="nav-item active">
+							<a class="nav-link" href="{% url 'view_cart' %}">
+								<i class="nav-item fa fa-shipping-cart"></i>Cart
 								{% if artifact_count > 0 %}
 								<label class="badge badge-warning">{{ artifact_count }}</label>
 								{% endif %}
@@ -62,33 +154,33 @@
 
 	<hr> {% if messages %}
 	<div>
-		{% for message in messages %} 
-        {{ message }}
-         {% endfor %}
+		{% for message in messages %}
+		{{ message }}
+		{% endfor %}
 	</div>
 
 	{% endif %}
-	 <div class="container">
-        <div class="display">
-            <form action="{% url 'search' %}" method="get">
-                <div class="row">
-				<div class="col-12">
-					<h3>Search For Artifacts  </h3> 
-			</div>
-        </div>
-			<div class="row">
-				<div class="col-12  col-lg-6">
-					<input class="form-control" id="search_text" name="q" type="text" >
-			</div>
-					<div class="col-12 mt-5 mt-lg-0 col-lg-6">
-						<button class="btn btn-dark" type="search">Search</button>
-						<a  class="btn btn-dark" href="{% url 'artifacts' %}">Refresh</a>
+	<div class="container">
+		<div class="display">
+			<form action="{% url 'search' %}" method="get">
+				<div class="row">
+					<div class="col-12">
+						<h3>Search For Artifacts </h3>
 					</div>
 				</div>
-            </form>
-        </div>
-        {% block content %} {% endblock %}
-    </div>
+				<div class="row">
+					<div class="col-12  col-lg-6">
+						<input class="form-control" id="search_text" name="q" type="text" >
+			</div>
+						<div class="col-12 mt-5 mt-lg-0 col-lg-6">
+							<button class="btn btn-dark" type="search">Search</button>
+							<a class="btn btn-dark" href="{% url 'artifacts' %}">Refresh</a>
+						</div>
+					</div>
+			</form>
+		</div>
+		{% block content %} {% endblock %}
+	</div>
 
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -100,8 +192,9 @@
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
 		integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
 	</script>
-    {% block head_js %}
-    {% endblock head_js %}
+	<script src="{% static 'js/relix.js'  %}"></script>
+	{% block head_js %}
+	{% endblock head_js %}
 
 </body>
 
