@@ -6,6 +6,7 @@ django-allauth==0.41.0
 django-forms-bootstrap==3.1.0
 entrypoints==0.3
 flake8==3.7.9
+gunicorn==19.7.1
 idna==2.8
 mccabe==0.6.1
 oauthlib==3.1.0
