@@ -14,7 +14,7 @@ def cart_contents(request):
     artifact_count = 0
     for id, quantity in cart.items():
         artifact = get_object_or_404(Artifact, pk=id)
-        total += quantity * artifact.price
+        total += quantity * artifact.price 
         artifact_count += quantity
         cart_items.append({'id': id, 'quantity': quantity, 'artifact': artifact})
 

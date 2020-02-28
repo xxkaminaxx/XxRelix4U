@@ -8,7 +8,8 @@
 
                 <h3 class="artifact-name">{{ artifact.name }}</h3>
                 <p class="description-box" id="artifact-description">{{ artifact.description }}</p>
-                <p>{{ artifact.price }}</p>
+                <p>£{{ artifact.price }}</p>
+                 <p>{{ artifact.date_posted }}</p>
 
                 <form method="POST" action="{% url 'add_to_cart' artifact.id %}">
                     {% csrf_token %}

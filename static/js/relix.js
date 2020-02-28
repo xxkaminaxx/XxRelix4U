@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 
     function showDescription() {
-      $("#artifact-description").style.display = "flex";
+      $("#artifact-description").style.display = "";
 }
 
   function hideDescription() {
