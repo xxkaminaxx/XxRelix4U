@@ -126,11 +126,7 @@
 				<div class="collapse navbar-collapse artifact-nav-menu" id="relix4u_colapse">
 					<ul class=" navbar-nav ml-auto">
 						<li class="nav-item active"><a class="nav-link" href="{% url 'index'  %}">Home</a></li>
-						<li class="nav-item active"><a class="nav-link" href="{% url 'artifacts'  %}">Artifacts</a>
-						</li>
 						{% if user.is_authenticated %}
-						<li class="nav-item active"><a class="nav-link" href="{% url 'personal_profile'  %}">Profile</a>
-						</li>
 						<li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
 						{% else %}
 						<li class="nav-item active"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
@@ -177,7 +173,7 @@
 			</div>
 						<div class="col-12 mt-5 mt-lg-0 col-lg-6">
 							<button class="btn btn-dark" type="search">Search</button>
-							<a class="btn btn-dark" href="{% url 'artifacts' %}">Refresh</a>
+							<a class="btn btn-dark" href="{% url 'index' %}">Refresh</a>
 						</div>
 					</div>
 			</form>
