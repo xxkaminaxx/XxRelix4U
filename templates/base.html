@@ -12,13 +12,17 @@
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 	<!-- FONT AWESOME-->
-	 <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
-	<!-- Custom CSS -->
+	<link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+	
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two&display=swap" rel="stylesheet">
+
+
+    <!-- Custom CSS -->
 	<link rel="stylesheet" href="{% static 'css/style.css'  %}">
 
 	<title>{% block page_title %}{% endblock %}</title>
 	<style>
-		.row,
 		.red {
 
 
@@ -26,8 +30,14 @@
 		}
 
 		body {
-			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-			padding-top: 100px;
+			font-family: 'Lobster Two', 'Arial Narrow', Arial, sans-serif;
+			background: url('../static/images/relix-bg.jpg') no-repeat fixed center;
+			background-size: cover;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			padding: 200px 0 440px;
+
 		}
 
 
@@ -66,16 +76,36 @@
 			height: 100px;
 		}
 
+		/* Search box styling */
 
+		.Search {
+			background-color: #696969;
+			padding: 60px 20px;
+            border-radius: 30px;
 
+		}
 
-
+.welcome-header{
+    padding-bottom:60px;
+    text-align:center;
+}
 
 		/*NAV CODE*/
 
+
+		.grail {
+			background: url('../static/images/grail.png') no-repeat center;
+			background-size: contain;
+			background-position: center center;
+			background-repeat: no-repeat;
+			padding: 25px;
+		}
+
+
 		#relix4u_nav {
 			padding-bottom: 20px;
-			background-color: green;
+			background-color: white;
+			box-shadow: 10px 10px 8px 10px #888888;
 
 		}
 
@@ -107,7 +137,7 @@
 		}
 
 		#relix4u_nav .navbar-nav>li.nav-item :hover {
-			background: #000;
+			background: #696969;
 			color: #fff;
 			width: 100%;
 		}
@@ -117,38 +147,35 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="relix4u_nav">
 		<div class="container-fluid">
-			<a class=" navbar-brand" href="{% url 'index'  %}"><img class="" >Relix4U</a>
-				<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#relix4u_colapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+			<a class=" navbar-brand" href="{% url 'index' %}">Relix4U<img class="grail"></img></a>
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#relix4u_colapse" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
-				<div class="collapse navbar-collapse artifact-nav-menu" id="relix4u_colapse">
-					<ul class=" navbar-nav ml-auto">
-						<li class="nav-item active"><a class="nav-link" href="{% url 'index'  %}">Home</a></li>
-						{% if user.is_authenticated %}
-						<li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
-						{% else %}
-						<li class="nav-item active"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-						<li class="nav-item active"><a class="nav-link"
-								href="{% url 'user_registration' %}">Register</a></li>
-						{% endif %}
-						<li class="nav-item active">
-							<a class="nav-link" href="{% url 'view_cart' %}">
-								<i class="nav-item fa fa-shipping-cart"></i>Cart
-								{% if artifact_count > 0 %}
-								<label class="badge badge-warning">{{ artifact_count }}</label>
-								{% endif %}
-							</a>
-						</li>
+			<div class="collapse navbar-collapse artifact-nav-menu" id="relix4u_colapse">
+				<ul class=" navbar-nav ml-auto">
+					<li class="nav-item active"><a class="nav-link" href="{% url 'index'  %}">Home</a></li>
+					{% if user.is_authenticated %}
+					<li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+					{% else %}
+					<li class="nav-item active"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+					<li class="nav-item active"><a class="nav-link" href="{% url 'user_registration' %}">Register</a>
+					</li>
+					{% endif %}
+					<li class="nav-item active">
+						<a class="nav-link" href="{% url 'view_cart' %}">
+							<i class="nav-item fa fa-shipping-cart"></i>Cart
+							{% if artifact_count > 0 %}
+							<label class="badge badge-warning">{{ artifact_count }}</label>
+							{% endif %}
+						</a>
+					</li>
 
-					</ul>
-				</div>
+				</ul>
+			</div>
 		</div>
 	</nav>
 
-	<h1>
-		{% block page_heading %}{% endblock %}
-	</h1>
 
 	<hr> {% if messages %}
 	<div>
@@ -158,8 +185,19 @@
 	</div>
 
 	{% endif %}
-	<div class="container">
-		<div class="display">
+
+
+	<div class="container-fluid Search ">
+		<div class="display ">
+			<div class="welcome-header">
+            {% if user.is_authenticated %}
+			<div>
+				{% block page_heading %} {% endblock %}
+			</div>
+			{% else %}
+			<h2>Welcome!!</h2>
+			{% endif %}
+            </div>
 			<form action="{% url 'search' %}" method="get">
 				<div class="row">
 					<div class="col-12">
@@ -167,18 +205,20 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-12  col-lg-6">
+					<div class="col-12">
 						<input class="form-control" id="search_text" name="q" type="text" >
 			</div>
-						<div class="col-12 mt-5 mt-lg-0 col-lg-6">
+						<div class="col-12 mt-5 mt-lg-4 ">
 							<button class="btn btn-dark" type="search">Search</button>
 							<a class="btn btn-dark" href="{% url 'index' %}">Refresh</a>
 						</div>
 					</div>
 			</form>
 		</div>
-		{% block content %} {% endblock %}
 	</div>
+	<main>
+		{% block content %} {% endblock %}
+	</main>
 
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"

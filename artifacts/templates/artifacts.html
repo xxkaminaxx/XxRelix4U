@@ -3,7 +3,13 @@
 
 {% block page_title %}{{ user }}'s profile{% endblock %}
 
-{% block page_heading %} Welcome {{ user }}{% endblock %}
+{% if user.is_authenticated %}
+<div>
+{% block page_heading %} <h2>Welcome {{ user }}</h2>{% endblock %}
+</div>
+{% else %}
+<h2>Welcome!!</h2>
+{% endif %}
 
 {% block content %}
 
