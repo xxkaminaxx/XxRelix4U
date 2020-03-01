@@ -26,10 +26,10 @@ Site owner/seller goal:
 
 #### User stories :
 
-As a user i would like to be able to search several categories to better find items im looking for. 
-As a user i would like to be able to see the price for an artifact and other details pertaining it to make an informed decision on whether to purchase or not. 
-As a user i would like to be able to bid on an artifact to potentially aquire said item.
-As a user i would like to be able to learn about the history and events of the item. 
+* As a user i would like to be able to search several categories to better find items im looking for. 
+* As a user i would like to be able to see the price for an artifact and other details pertaining it to make an informed decision on whether to purchase or not. 
+* As a user i would like to be able to bid on an artifact to potentially aquire said item.
+* As a user i would like to be able to learn about the history and events of the item. 
 
 
 
@@ -42,13 +42,26 @@ I hand drew my wireframes and linked them below:
 # Features
 
 #### Existing features: 
-
+* Back to home button - by clicking the logo on the top lefthand side user can return back to the homepage. 
+* Navbar - allows user to navigate through the various pages within app. 
+* Search bar - allows user to search for artifact when they type in keyword relating to artifact. 
+* Refresh button(Search bar)
+* checkout 
+* stripe payment 
+* add quantity. 
+* Login 
+* logout 
+* register 
+* reset password 
 
 
 
 
 #### Features left to implement:
 
+* Bidding - This was intended to be implemented however i ran out of time during the development of this project. 
+* recently viewed items 
+* watchlist 
 
 
 # Technologies used: 
