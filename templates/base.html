@@ -12,7 +12,8 @@
 		integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 	<!-- FONT AWESOME-->
-	<link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+		integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
 	<!-- Google Fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two&display=swap" rel="stylesheet">
@@ -46,7 +47,7 @@
 			-webkit-background-size: cover;
 			-moz-background-size: cover;
 			-o-background-size: cover;
-			padding-top: 200px ;
+			padding-top: 200px;
 
 		}
 
@@ -67,6 +68,8 @@
 			background-repeat: no-repeat;
 			width: 150px;
 			height: 150px;
+			margin: 0 auto;
+			border: 2px solid #000;
 
 		}
 
@@ -74,18 +77,19 @@
 			display: block;
 			height: 70px;
 			width: auto;
-			color: red;
+			color: #000;
+			text-align: center;
 
 		}
 
 		#artifact-description {
-			display:none;
+			display: none;
+            height: 100px;
+			font-weight: 600;
+			Font-size: 20px;
 		}
 
-		.description-box {
-			height: 100px;
-		}
-
+		
 		/* Search box styling */
 
 		.Search {
@@ -199,9 +203,9 @@
 			color: #fff;
 		}
 
-        .copyright{
-            color:#fff;
-        }
+		.copyright {
+			color: #fff;
+		}
 	</style>
 </head>
 
@@ -306,7 +310,7 @@
 
 			</div>
 			<div class="col-sm-12 mx-auto ">
-				<p class="copyright"> &copy; Copyright 2020  : Stephen Kasolo </p>
+				<p class="copyright"> &copy; Copyright 2020 : Stephen Kasolo </p>
 			</div>
 		</div>
 	</footer>
