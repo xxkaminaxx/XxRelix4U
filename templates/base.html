@@ -51,13 +51,17 @@
 
 		}
 
-
+		.row {
+			width: 100%;
+		}
+       
 
 		.artifact-card {
 			width: 320px;
 			height: auto;
-			margin: 10px auto;
 			border: 6px solid grey;
+            margin: 0 auto;
+            padding:20px;
 			background-color: #fafafa;
 
 		}
@@ -84,12 +88,18 @@
 
 		#artifact-description {
 			display: none;
-            height: 100px;
+			height: 100px;
 			font-weight: 600;
 			Font-size: 20px;
 		}
 
-		
+
+
+
+		span {
+			font-family: 'Lobster Two', 'Arial Narrow', Arial, sans-serif;
+		}
+
 		/* Search box styling */
 
 		.Search {
@@ -153,10 +163,36 @@
 		#relix4u_nav .navbar-nav>li.nav-item :hover {
 			background: #696969;
 			color: #fff;
-			width: 100%;
+
 		}
 
+		/* CART STYLING */
 
+
+		.cart-checkout-box {
+			width: 300px;
+			height: 300px;
+			padding: 100px 100px;
+			border: 6px solid grey;
+			background-color: #fafafa;
+
+
+		}
+
+		
+		/* CHECKOUT STYLING */
+
+
+		.checkout-box {
+			background-color: #696969;
+            border : 2px solid #fff;
+		}
+
+		.payment-details  form {
+		width:100%;
+		}
+
+		
 		/*  flash msgs  */
 
 		.flashes {
@@ -167,6 +203,7 @@
 			display: block;
 			margin-right: 40px;
 			padding-bottom: 50px;
+			background-color: #000;
 		}
 
 		/* Back to top button */
@@ -193,6 +230,7 @@
 		.footer-style {
 			background-color: #2b2d2f;
 			text-align: center;
+
 		}
 
 		li.social-media-item {
@@ -220,21 +258,24 @@
 			<div class="collapse navbar-collapse artifact-nav-menu" id="relix4u_colapse">
 				<ul class=" navbar-nav ml-auto">
 					<li class="nav-item active"><a class="nav-link"
-							href="{% url 'index'  %}"><i class="fas fa-home"></i></a></li>
+							href="{% url 'index'  %}"><i class="fas fa-home"><span> Home </span></i></a></li>
 					{% if user.is_authenticated %}
-					<li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+					<li class="nav-item active"><a class="nav-link" href="{% url 'logout' %}">
+							<i class="fas fa-sign-out-alt"> <span> Logout </span></i></a></li>
 					{% else %}
-					<li class="nav-item active"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
-					<li class="nav-item active"><a class="nav-link" href="{% url 'user_registration' %}">Register</a>
+					<li class="nav-item active"><a class="nav-link"
+							href="{% url 'login' %}"><i class="fas fa-sign-in-alt"><span> login </span></i></a></li>
+					<li class="nav-item active"><a class="nav-link"
+							href="{% url 'user_registration' %}"><i class="fas fa-user-plus"><span> register </span></i></a>
 					</li>
 					{% endif %}
 					<li class="nav-item active">
 						<a class="nav-link" href="{% url 'view_cart' %}">
-							<i class="nav-item fa fa-shipping-cart"></i>Cart
+							<i class=" fa fa-shopping-cart"><span> Cart </span>
 							{% if artifact_count > 0 %}
 							<label class="badge badge-warning">{{ artifact_count }}</label>
 							{% endif %}
-						</a>
+						</i></a>
 					</li>
 
 				</ul>
@@ -252,6 +293,14 @@
 		</ul>
 	</div>
 	{% endif %}
+
+   {% if error  %}
+	<div class="flash-box">
+		<ul class="flashes">
+			<p class="error"><strong>error</strong>{{ error }} </p>
+		</ul>
+	</div>
+	{%  endif  %}
 
 
 	<div class="container-fluid Search ">
@@ -289,8 +338,8 @@
 
 	<button onclick="topFunction()" id="TopBtn" title="Go to Top">Top </button>
 
-	<footer class=" container-fluid ">
-		<div class="footer-style row">
+	<footer class="footer-style container-fluid ">
+		<div class=" row">
 			<div class="col-12 mx-auto ">
 				<ul class="mx-auto">
 					<li class="social-media-item">
