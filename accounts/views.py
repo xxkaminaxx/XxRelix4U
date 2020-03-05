@@ -36,7 +36,7 @@ def login(request):
 # if user log them in
             if user:
                 auth.login(user=user, request=request)
-                messages.success(request, "You have successfully logged in!")
+                messages.success(request, "You have logged in!")
                 return redirect(reverse('index'))
                 # if incorrect error !
             else:

@@ -1,10 +1,11 @@
-$(document).ready(function() {
-    // hides or shows description
-    $("#show-btn").click(function(){
-        $("#artifact-description").toggle(500);
-    });
+	$(".show-btn").click(function(){
+  $(this).siblings(".artifact-description").toggle();
+});
 
-    window.onscroll = function() {scrollFunction();};
+
+
+
+window.onscroll = function() {scrollFunction();};
 
 function scrollFunction() {
   if (document.body.scrollTop > 500 || document.documentElement.scrollTop >500) {
@@ -20,6 +21,4 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
-// Taken from MS1  
-
-});
+// Taken from MS1 

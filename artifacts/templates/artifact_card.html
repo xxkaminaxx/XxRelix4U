@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <div class=" row ">
-    {% for artifact in artifacts %}
-        <div class=" col-md-6  col-lg-4 my-5 mx-auto ">
-            <div class="card artifact-card" id="artifact_card">
-            <div class="card-body ">
-                <div class="artifact" style="background-image: url('{{ MEDIA_URL }}{{ artifact.image }}')"></div>
+	{% for artifact in artifacts %}
+	<div class=" col-md-6  col-lg-4 my-5 mx-auto ">
+		<div class="card artifact-card" id="artifact_card">
+			<div class="card-body ">
+				<div class="artifact" style="background-image: url('{{ MEDIA_URL }}{{ artifact.image }}')"></div>
 
-                <h3 class="artifact-name">{{ artifact.name }}</h3>
-                <p id="artifact-description">{{ artifact.description }}</p>
-                <p>£{{ artifact.price }}</p>
-                 <p>{{ artifact.date_posted }}</p>
-
-                <form method="POST" action="{% url 'add_to_cart' artifact.id %}">
-                    {% csrf_token %}
-                    <div class="input-group">
-                        <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="QTY">
-                        <span class="input-group-btn">
+				<h3 class="artifact-name">{{ artifact.name }}</h3>
+				<p class="artifact-description">{{ artifact.description }}</p>
+				<p>£{{ artifact.price }}</p>
+				<p>{{ artifact.date_posted }}</p>
+				<button  class="show-btn btn btn-dark" type="button"> Description </button>
+				<form method="POST" action="{% url 'add_to_cart' artifact.id %}">
+					{% csrf_token %}
+					<div class="input-group">
+						<input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="QTY">
+						<span class="input-group-btn">
                             <button class="btn btn-dark" type="submit">Add</button>  
-                            <button id="show-btn" class="btn btn-dark" type="button">Description </button>
                         </span>
-                    </div>
-                </form>
-            </div>
-            </div>
-        </div>
-    {% endfor %}
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
 </div>
