@@ -4,7 +4,6 @@
 {% load bootstrap_tags %}
 
 {% block content %}
-<div class="container">
 	<div class="row">
 		{% for item in cart_items %}
 		<div class=" col-md-6 col-lg-4 my-5 mx-auto">
@@ -23,13 +22,12 @@
 							<label  class="sr-only">New Qty</label>
 							<div class="input-group">
 								<div class="input-group-addon">Qty</div>
-								<input name="quantity" type="number" min="0" max="999" class="form-control">
+								<input name="quantity" type="number" min="0" max="999" class="form-control" required>
 								<div class="input-group-addon"> {{item.quantity}}</div>
 							</div>
 						</div>
 						<span>
                     <button type="submit" class="btn btn-dark"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span>Amend</button>
-						<button id="show-btn" class="btn btn-dark" type="button"> Show description </button>
 						</span>
 					</form>
 				</div>
@@ -38,7 +36,6 @@
 
 		{% endfor %}
 	</div>
-</div>
 <div class="row ">
 	<div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 mx-auto  ">
 		<div class="cart-checkout-box mx-auto my-4">

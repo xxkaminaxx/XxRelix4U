@@ -57,13 +57,19 @@ Reset password :
 
 1) On the login page, click the link to the reset password page see if you are redirected to the correct page. 
 2) Enter email associated with an account and submit see if you are redirected to a page that informs you an email has been sent. 
-3) 
-
-
+3) Enter an email or random text not associated with an account and see if an error message displays. 
+4) when testing password_reset, according to the code institute videos, in gitpod/locally you won't be able to send/receive an email to a real account therefore the alternative is to use the a terminal. 
+Input an email associated with an account you would like to reset the email of into password reset form. Next submit the email and then check the terminal to see if an email message is displayed.  
+click the unique link and it should take you to another page that you can then reset your password on.  
+5) on the password reset form, input two different passwords to see if an error message appears. 
 
 Cart: 
+* Try to add an artifact to cart from the main page and see if it appeaers. 
+* Try to amend the total QTY of an artfact. 
 
 Checkout: 
+* Try to submit a blank field in the form see if an error message appears. 
+* Add an artifact then Enter in the approprete credentials and then use the card number "4242424242424242" and submit payment.
 
 
 Responsive tests
@@ -90,13 +96,50 @@ Screen sizes
 The app passed all the responsive tests.
 
 
-
-
 #### part 3 browser compatibility tests :
 
+I tested this app on several browsers such as :
+
+Internet explorer | Everything good. 
+Google chrome | Everything Good.
+Google Chrome (Mobile) | Everything Good.
+Firefox (mobile) | Everything Good
+Samsung mobile internet | Everything Good
 
  
 #### part 4 Issues/bugs :
 
+Stripe card payment: I had a problem with card payments on the app.
+I found that when I tried to pay for an item the payment woudnt go through unless i put these exact details:
+```
 
-#### part 5 automated tests 
+Card number: 4242424242424242
+month:03
+year:2031
+
+```
+The [stripe testing](https://stripe.com/docs/testing) docs specify thay any number can be used for the "month"
+and the "year"fields however when I just put the card number specified above 
+and random digits in the "month" and "year" fields  i would get two errors: 
+
+* in dev tools: " (index):3 POST https://api.stripe.com/v1/tokens 402 "
+* In the app itself : "we are unable to make payment with this card" this is the result
+of the else code:
+```
+if order_form.is_valid() and payment_form.is_valid():
+            order = order_form.save(commit=False)
+            order.date = timezone.now()
+            order.save()
+...
+       else:
+            print(payment_form.errors)
+            messages.error(request, "We were unable to take a payment with that card")
+```
+
+overall the payment system does work as when I made a payment I checked on my stripe payment via my stripe 
+account as seen [here](https://github.com/xxkaminaxx/XxRelix4U/blob/master/static/images/test-pay.jpg)
+however there is no indication that the payment is made via the users end. i wasnt able to get to the bottom of this as I didn't have enough time. 
+
+
+
+

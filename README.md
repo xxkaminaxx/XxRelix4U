@@ -135,7 +135,7 @@ This is because to deploy to heroku i needed to use postgresSQL furthermore post
 
 # TESTING 
 
-click [here] () to view TESTING.md file.
+click [here] (https://github.com/xxkaminaxx/XxRelix4U/blob/master/TESTING.md) to view TESTING.md file.
 
 ***
 # DEPLOYMENT

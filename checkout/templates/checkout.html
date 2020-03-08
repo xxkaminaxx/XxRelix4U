@@ -3,25 +3,35 @@
 {% load static from staticfiles %}
 {% load bootstrap_tags %}
 
+{% block head_js %}
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+    //<![CDATA[
+        document.cookie = 'cross-site-cookie=bar; SameSite=none';
+        Stripe.publishableKey = '{{ publishable }}';
+    //]]>
+</script>
+<script type="text/javascript"  src="../../static/js/stripe.js"></script>
+{% endblock %}
 
 {% block content %}
-<div class="container ">
 <div class="row">
-	{% for item in cart_items %}
-	<div class=" col-md-6 col-lg-4 mt-5 mx-auto">
-		<div class="card artifact-card" id="artifact_card">
-			<div class="card-body ">
-				<div class="artifact" style="background-image: url('{{ MEDIA_URL }}{{ item.artifact.image }}')">
+		{% for item in cart_items %}
+		<div class=" col-md-6 col-lg-4 my-5 mx-auto">
+			<div class="card artifact-card" id="artifact_card">
+				<div class="card-body ">
+					<div class="artifact" style="background-image: url('{{ MEDIA_URL }}{{ item.artifact.image }}')">
+					</div>
+
+					<h3 class="artifact-name">{{ item.artifact.name }}</h3>
+					<p id="artifact-description">{{ item.artifact.description }}</p>
+					<p>£{{ item.artifact.price }}</p>
+					<p>{{ item.artifact.date_posted }}</p>
 				</div>
-				<h3 class="artifact-name">{{ item.artifact.name }}</h3>
-				<p id="artifact-description">{{ item.artifact.description }}</p>
-				<p>£{{ item.artifact.price }}</p>
-				<p>{{ item.artifact.date_posted }}</p>
-				{% endfor %}
 			</div>
 		</div>
-	</div>
-</div>
+
+		{% endfor %}
 </div>
 
 
@@ -43,11 +53,11 @@
 		<div id="alert-message block-message error" id="stripe-error-message"></div>
 	</div>
 
-	<div class="form-group col-6">
+	<div class="form-group col-12">
 		{{ order_form | as_bootstrap }}
 	</div>
 
-	<div class="form-group col-6">
+	<div class="form-group col-12">
 		{{ payment_form | as_bootstrap }}
 	</div>
 

@@ -1,3 +1,4 @@
+$( document ).ready(function() {
 $(function() {
     $("#payment-form").submit(function() {
         var form = this;
@@ -30,3 +31,5 @@ $(function() {
     return false;
     });
 });
+});
+
