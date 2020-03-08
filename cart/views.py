@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, reverse
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -8,6 +8,7 @@ def view_cart(request):
     return render(request, "cart.html")
 
 
+@login_required()
 def add_to_cart(request, id):
     # add a quantity of the specified product to the cart
     quantity = int(request.POST.get('quantity'))

@@ -1,14 +1,20 @@
 Validation: 
 
  HTML -  [W3.orgvalidator](https://validator.w3.org/nu/) 
+ * I found no errors apart from when the html validator tried to read the templating language.
+ * I found the validator would specify a "lang" attribute, "title" and "doctype" was needed however as specified in the code institute
+ videos these arent neededin the html templates. 
+ * There were several errors in the base.html i didnt have time to figure out what was going on in the base.html. 
 
  CSS -  [W3CCSSvalidation](https://jigsaw.w3.org/css-validator) 
+ * "Congratulations! No Error Found."
 
 Python - [PEP8validator](http://pep8online.com/) 
+* "All right." 
 
 Javascript - [Esprima](https://esprima.org/demo/validate.html) 
 
-
+* "Code is syntactically valid."
 
 #### part 1 User testing: User stories:
 
@@ -79,7 +85,7 @@ Responsive tests
 3) Check that the back to top button still appears on smaller screen sizes.
 4) Check the text displays clearly and doesnt go off the screen.
 5) Check that the layout changes on mobile view.
-6) Check the charaters cards are in single file stacked on top of each other when in mobile view.
+6) Check the artifact cards are in single file stacked on top of each other when in mobile view.
 
 Screen sizes
 
@@ -99,8 +105,7 @@ The app passed all the responsive tests.
 #### part 3 browser compatibility tests :
 
 I tested this app on several browsers such as :
-
-Internet explorer | Everything good. 
+ 
 Google chrome | Everything Good.
 Google Chrome (Mobile) | Everything Good.
 Firefox (mobile) | Everything Good

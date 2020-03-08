@@ -4,69 +4,72 @@
 {% load bootstrap_tags %}
 
 {% block head_js %}
-<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-<script type="text/javascript">
-    //<![CDATA[
+<script src="https://js.stripe.com/v2/"></script>
+<script>
+	//<![CDATA[
         document.cookie = 'cross-site-cookie=bar; SameSite=none';
         Stripe.publishableKey = '{{ publishable }}';
     //]]>
 </script>
-<script type="text/javascript"  src="../../static/js/stripe.js"></script>
+<script src="../../static/js/stripe.js"></script>
 {% endblock %}
 
 {% block content %}
 <div class="row">
-		{% for item in cart_items %}
-		<div class=" col-md-6 col-lg-4 my-5 mx-auto">
-			<div class="card artifact-card" id="artifact_card">
-				<div class="card-body ">
-					<div class="artifact" style="background-image: url('{{ MEDIA_URL }}{{ item.artifact.image }}')">
-					</div>
-
-					<h3 class="artifact-name">{{ item.artifact.name }}</h3>
-					<p id="artifact-description">{{ item.artifact.description }}</p>
-					<p>£{{ item.artifact.price }}</p>
-					<p>{{ item.artifact.date_posted }}</p>
+	{% for item in cart_items %}
+	<div class=" col-md-6 col-lg-4 my-5 mx-auto">
+		<div class="card artifact-card" id="artifact_card">
+			<div class="card-body ">
+				<div class="artifact" style="background-image: url('{{ MEDIA_URL }}{{ item.artifact.image }}')">
 				</div>
+
+				<h3 class="artifact-name">{{ item.artifact.name }}</h3>
+				<p id="artifact-description">{{ item.artifact.description }}</p>
+				<p>£{{ item.artifact.price }}</p>
+				<p>{{ item.artifact.date_posted }}</p>
 			</div>
 		</div>
+	</div>
 
-		{% endfor %}
+	{% endfor %}
 </div>
 
 
 
 <div class="row">
-<div class="col-12 col-md-3 mt-5">
-	<div class="checkout-box ml-3 ">
-    <p>Total:</p>
-	<p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
+	<div class="col-12 col-md-3 mt-5">
+		<div class="checkout-box ml-3 ">
+			<p>Total:</p>
+			<p><span class="glyphicon glyphicon-euro" aria-hidden="true"></span>{{ total }}</p>
+		</div>
+	</div>
+
+	<div class="col-12 col-md-9  mt-5 mb-3">
+		<div class="checkout-box pb-3 mb-2 ml-sm-3">
+			<form method="POST" id="payment-form" action="{% url 'checkout' %}">
+				<label>Payment Details</label>
+
+				<div id="credit-card-errors" style="display: none;">
+					<div id="alert-message"></div>
+					<div id="block-message"></div>
+					<div id="error"></div>
+					<div id="stripe-error-message"></div>
+				</div>
+
+				<div class="form-group col-12">
+					{{ order_form | as_bootstrap }}
+				</div>
+
+				<div class="form-group col-12">
+					{{ payment_form | as_bootstrap }}
+				</div>
+
+				{% csrf_token %}
+				<div class="form-group col-12 my-4 ">
+					<input class="btn btn-dark" id="submit_payment_btn" name="commit" type="submit">
     </div>
-</div>
-
-<div class="col-12 col-md-9  mt-5 mb-3">
-<div class="checkout-box pb-3 mb-2 ml-sm-3">
-<form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">
-	<legend>Payment Details</legend>
-
-	<div id="credit-card-errors" style="display: none;">
-		<div id="alert-message block-message error" id="stripe-error-message"></div>
+			</form>
+		</div>
 	</div>
-
-	<div class="form-group col-12">
-		{{ order_form | as_bootstrap }}
-	</div>
-
-	<div class="form-group col-12">
-		{{ payment_form | as_bootstrap }}
-	</div>
-
-	{% csrf_token %}
-	<div class="form-group col-12 my-4 ">
-		<input class="btn btn-dark" id="submit_payment_btn" name="commit" type="submit">
-    </div>
-</form>
-</div>
-</div>
 </div>
 {% endblock %}

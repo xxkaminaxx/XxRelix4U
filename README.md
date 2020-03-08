@@ -263,13 +263,35 @@ your project should be set up for remote deployment :)
 # CREDITS
 
  #### Code: 
- 
-  
+ * I used the code from the ecommerce mini project as a foundation for my project.
+* The back to top button was reused from a previous project.
+  ```
+  window.onscroll = function() {scrollFunction();};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 500 || document.documentElement.scrollTop >500) {
+    document.getElementById("TopBtn").style.display = "block";
+  } else {
+    document.getElementById("TopBtn").style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+  ```
 
 
 #### Content : 
-
+* All the images used are from google images and were edited via paint3d.
+* To save time I reused parts of my ms3 for the sake of structure. 
 
 #### Acknowledgements : 
-During the development of this project because i had very little time left I used alot of the django mini project 
-code. So what i mean is as i was learning and implimenting the mini project i was also editing it to what would eventually become my milestone 4. I changed most areas and made it my own, nevertheless I'm acknowledging some of my code will look similar to the mini project.
+* During the development of this project because I had very little time left I used alot of the django mini project 
+code. So what i mean is as i was learning and implimenting the mini project i was also editing it to what would eventually become my milestone 4.
+ I changed most areas and made it my own, nevertheless I'm acknowledging some of my code will look/function similar to the mini project.
+* There maybe several errors in this project that ive missed due to me rushing this but i have, to the best of my abilities, tried to acknowledge these within this readme. 
+* Big thanks to micheal_cl and samantha_cl for giving me help/advice on implimenting the bid feature. 

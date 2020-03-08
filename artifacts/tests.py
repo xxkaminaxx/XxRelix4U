@@ -3,7 +3,7 @@ from .models import Artifact
 # Create your tests here.
 
 
-class ProductTests(TestCase):
+class ArtifactTests(TestCase):
     # Here we'll define the tests that we'll run against our
     # Artifact model
 

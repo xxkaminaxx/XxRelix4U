@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from accounts.forms import PersonalLoginForm, RegistrationForm
 
 # Create your views here.
@@ -10,6 +9,7 @@ from accounts.forms import PersonalLoginForm, RegistrationForm
 def index(request):
     # returns the index.html file
     return render(request, 'index.html')
+
 
 @login_required  # redirects user to login if they try to access other content
 def logout(request):
@@ -65,18 +65,12 @@ def user_registration(request):
                 messages.success(request, "congrats! all registered!")
                 return redirect(reverse('index'))
             else:
-                messages.error(request, "Unable to register your account at this time")
+                messages.error(request,
+                               "Unable to register your account at this time")
     else:
         registration_form = RegistrationForm()
     return render(request, 'register.html', {
         'registration_form': registration_form})
-
-
-def personal_profile(request):
-    # personal profile page
-    # this retrieves user info from db
-    user = User.objects.get(email=request.user.email)
-    return render(request, 'personal_profile.html', {'personal_profile': user})
 
 
 def password_email(request):

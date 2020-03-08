@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 {% load staticfiles  %}
-<html lang="en">
+
+<html>
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>{% block page_title %}{% endblock %}</title>
 
 	<!--BOOTSTRAP CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -18,17 +20,13 @@
 	<!-- Google Fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two&display=swap" rel="stylesheet">
 
-	<title>{% block page_title %}{% endblock %}</title>
 
 	<!-- Custom CSS -->
 	<link rel="stylesheet" href="{% static 'css/style3.css'  %}">
 
-<style>
-
-</style>
 </head>
 
-<body class="relix-bg">
+<body>
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="relix4u_nav">
 		<div class="container-fluid">
 			<a class=" navbar-brand" href="{% url 'index' %}">Relix4U<img class="grail"></img></a>
